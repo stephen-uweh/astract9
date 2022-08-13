@@ -69,23 +69,26 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', 'min:8'],
-            'phone' => ['required', 'min:10']
+        return response()->json([
+            'request' => $request->all()
         ]);
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'confirmed', 'min:8'],
+        //     'phone' => ['required', 'min:10']
+        // ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'password' => Hash::make($request->password),
-        ]);
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'phone' => $request->phone,
+        //     'password' => Hash::make($request->password),
+        // ]);
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
-        return redirect('/pending');
+        // return redirect('/pending');
 
         // Auth::login($user);
 
