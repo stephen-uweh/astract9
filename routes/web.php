@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test/api', function(){
+    return "API";
+});
+
 Route::get('/pending', function(){
     return view('pending');
 });
