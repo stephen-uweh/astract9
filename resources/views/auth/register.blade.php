@@ -28,12 +28,12 @@
 
 
             <div>
-                <x-label for="phone" :value="__c('Phone')" />
+                <x-label for="phone" :value="__('Phone')" />
 
                 <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" required autofocus />
             </div>
 
-            
+
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
