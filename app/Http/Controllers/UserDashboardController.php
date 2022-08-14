@@ -33,7 +33,7 @@ class UserDashboardController extends Controller
 
         Messages::create($data);
         
-        return redirect('/user/dashboard');
+        return redirect('/dashboard');
     }
     
 }
