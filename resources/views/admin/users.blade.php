@@ -50,7 +50,7 @@
         Active
     </x-button>
 
-    c
+    
     <div class="ml-3 mt-3">
         <table >
             <tr>
@@ -92,7 +92,7 @@
     <script>
         var (function() {
             var filter;
-            document.getElementById("pending").click(function() {
+            document.getElementById("pending").addEventListener('click', function() {
                 if (filter == 'pending') {
                 document.getElementByTagName('tr').show();
                 filter = undefined;
@@ -102,7 +102,7 @@
                 filter = 'pending';
                 }
             });
-            document.getElementById("active").click(function() {
+            document.getElementById("active").addEventListener('click', function() {
                 if (filter == 'active') {
                 document.getElementByTagName('tr').show();
                 filter = undefined;
