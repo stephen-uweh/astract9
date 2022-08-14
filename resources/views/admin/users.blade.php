@@ -38,12 +38,12 @@
         
     </div>
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-2 bg-white border-b border-gray-200">
+        <div class="ml-3 p-2 bg-white border-b border-gray-200">
             All Users
         </div>
     </div>
     <br>
-    <label for="Filter">Filter: </label>
+    <label for="Filter" class="ml-3">Filter: </label>
     <x-button class="ml-3 mt-3">
         <a href="/admin/pending/users">
             Pending
