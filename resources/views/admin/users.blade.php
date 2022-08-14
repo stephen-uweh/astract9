@@ -59,9 +59,11 @@
                     <td>{{ $user->phone }}</td>
                     <td>{{ $user->status }}</td>
                     <td>
-                        <a href="/users/{{ $user->id }}/activate">
-                            Approve user
-                        </a>
+                        <x-button>
+                            <a href="/users/{{ $user->id }}/activate">
+                                Approve user
+                            </a>
+                        </x-button>
                     </td>
                 </tr>
             @endforeach
