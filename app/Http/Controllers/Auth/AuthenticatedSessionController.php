@@ -35,9 +35,7 @@ class AuthenticatedSessionController extends Controller
         // if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => Hash::make($request->password)])){
         //     return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         // }
-        $request->authenticate();
-
-        $request->session()->regenerate();
+        Auth::guard('admin')->attempt(['email' => $request->email, 'password' => Hash::make($request->password)]);
 
         return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
 
