@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
 Route::group(['prefix' => '/admin'], function(){
 
     Route::get('register', [RegisteredUserController::class, 'create_admin'])->name('admin.register');
@@ -25,6 +28,8 @@ Route::group(['prefix' => '/admin'], function(){
 
     Route::get('login', [AuthenticatedSessionController::class, 'admin_login_page'])->name('admin.login');
     Route::post('login', [AuthenticatedSessionController::class, 'admin_login']);
+
+    Route::post('logout', [AuthenticatedSessionController::class, 'admin_destroy'])->name('admin.logout');
 
 
 

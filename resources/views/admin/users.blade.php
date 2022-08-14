@@ -8,7 +8,7 @@
 
     <div class="mt-3 space-y-1">
         <!-- Authentication -->
-        <form method="POST" action="{{ route('logout') }}">
+        <form method="POST" action="{{ route('admin.logout') }}">
             @csrf
 
             <x-responsive-nav-link :href="route('logout')"
@@ -59,11 +59,13 @@
                     <td>{{ $user->phone }}</td>
                     <td>{{ $user->status }}</td>
                     <td>
-                        <x-button>
-                            <a href="/admin/users/{{ $user->id }}/activate">
-                                Approve user
-                            </a>
-                        </x-button>
+                        @if ($user->status == 'Pending')
+                            <x-button>
+                                <a href="/admin/users/{{ $user->id }}/activate">
+                                    Activate user
+                                </a>
+                            </x-button>                
+                        @endif
                     </td>
                 </tr>
             @endforeach
