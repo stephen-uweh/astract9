@@ -34,6 +34,12 @@
         </div>
 
         <x-button class="ml-3 mt-3">
+            <a href="/dashboard">
+                Dashboard
+            </a>
+        </x-button>
+
+        <x-button class="ml-3 mt-3">
             <a href="{{ route('send-message-page') }}">
                 Send Message
             </a>

@@ -42,6 +42,8 @@
             All Users
         </div>
     </div>
+    <br>
+    <label for="Filter">Filter: </label>
     <x-button class="ml-3 mt-3">
         <a href="/admin/pending/users">
             Pending
