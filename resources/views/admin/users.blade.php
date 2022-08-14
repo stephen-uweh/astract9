@@ -42,6 +42,15 @@
             All Users
         </div>
     </div>
+    <x-button class="ml-3 mt-3" id="pending">
+        Pending
+    </x-button>
+
+    <x-button class="ml-3 mt-3" id="active">
+        Active
+    </x-button>
+
+    c
     <div class="ml-3 mt-3">
         <table >
             <tr>
@@ -53,23 +62,58 @@
             </tr>
 
             @foreach ($users as $user)
-                <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->phone }}</td>
-                    <td>{{ $user->status }}</td>
-                    <td>
-                        @if ($user->status == 'Pending')
+                @if ($user->status == 'Pending')
+                    <tr class="pending-user">
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->phone }}</td>
+                        <td>{{ $user->status }}</td>
+                        <td>
                             <x-button>
                                 <a href="/admin/users/{{ $user->id }}/activate">
                                     Activate user
                                 </a>
                             </x-button>                
-                        @endif
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                @else
+                    <tr class="active-user">
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->phone }}</td>
+                        <td>{{ $user->status }}</td>
+                        <td></td>
+                    </tr>
+                @endif
             @endforeach
         </table>
     </div>
+
+    <script>
+        var (function() {
+            var filter;
+            document.getElementById("pending").click(function() {
+                if (filter == 'pending') {
+                document.getElementByTagName('tr').show();
+                filter = undefined;
+                } else {
+                document.getElementByTagName('tr:not(.pending)').hide();
+                document.getElementByTagName('tr.pending').show();
+                filter = 'pending';
+                }
+            });
+            document.getElementById("active").click(function() {
+                if (filter == 'active') {
+                document.getElementByTagName('tr').show();
+                filter = undefined;
+                } else {
+                document.getElementByTagName('tr:not(.active)').hide();
+                document.getElementByTagName('tr.active').show();
+                filter = 'active';
+                }
+            });
+        });
+    </script>
+
 
 </x-guest-layout>
