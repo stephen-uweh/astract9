@@ -60,7 +60,7 @@
                     <td>{{ $user->status }}</td>
                     <td>
                         <x-button>
-                            <a href="/users/{{ $user->id }}/activate">
+                            <a href="/admin/users/{{ $user->id }}/activate">
                                 Approve user
                             </a>
                         </x-button>
