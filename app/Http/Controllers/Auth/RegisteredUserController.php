@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($admin));
 
-        Auth::login($admin);
+        Auth::guard('admin')->login($admin);
 
         return redirect(RouteServiceProvider::ADMIN_HOME);
     }
