@@ -19,6 +19,16 @@ class AdminDashboardController extends Controller
         return view('admin.users', compact('users'));
     }
 
+    public function pending_users(){
+        $users = User::orderBy('created_at', 'desc')->where('status', 'Pending')->get();
+        return view('admin.users', compact('users'));
+    }
+
+    public function active_users(){
+        $users = User::orderBy('created_at', 'desc')->where('status', 'Active')->get();
+        return view('admin.users', compact('users'));
+    }
+
     public function activate_user($id){
 
         $user = User::findOrFail($id);

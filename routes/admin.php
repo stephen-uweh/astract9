@@ -39,6 +39,10 @@ Route::group(['prefix' => '/admin'], function(){
 
         Route::get('users', [AdminDashboardController::class, 'all_users']);
 
+        Route::get('active/users', [AdminDashboardController::class, 'active_users']);
+
+        Route::get('pending/users', [AdminDashboardController::class, 'pending_users']);
+
         Route::get('users/{id}/activate', [AdminDashboardController::class, 'activate_user']);
 
         Route::get('messages', [AdminDashboardController::class, 'messages']);
