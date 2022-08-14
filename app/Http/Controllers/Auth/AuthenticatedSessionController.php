@@ -25,7 +25,7 @@ class AuthenticatedSessionController extends Controller
         return view('auth.admin.login');
     }
 
-    public function admin_login(Request $request){
+    public function admin_login(LoginRequest $request){
         
         $this->validate($request, [
             'email' => 'required | email',
