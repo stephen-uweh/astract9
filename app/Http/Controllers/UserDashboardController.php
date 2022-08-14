@@ -11,7 +11,7 @@ class UserDashboardController extends Controller
     public function user_messages(){
         $user = auth()->user();
         $messages = Messages::orderBy('created_at', 'desc')->where('user_id', $user->id)->get();
-        return view('messages', compact($messages));
+        return view('messages', compact('messages'));
     }
 
     public function send_message_page(){
@@ -24,7 +24,7 @@ class UserDashboardController extends Controller
             'subject' => 'required',
             'message' => 'required'
         ]);
-        
+
         $data = [
             'user_id' => $user->id,
             'subject' => $request->subject,
