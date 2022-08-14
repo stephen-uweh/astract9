@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
             'password' => 'required'
         ]); 
 
-        if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => Hash::make($request->password)])){
+        if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
             return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         }
         else{
