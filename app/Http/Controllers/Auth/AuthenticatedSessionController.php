@@ -25,7 +25,7 @@ class AuthenticatedSessionController extends Controller
         return view('auth.admin.login');
     }
 
-    public function admin_login(LoginRequest $request){
+    public function admin_login(Request $request){
         
         $this->validate($request, [
             'email' => 'required | email',
@@ -36,7 +36,9 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         }
         else{
-            return "API";
+            return response()->json([
+                'request' => $request->all()
+            ]);
         }
 
         // return back()->withInput($request->only('email'));
