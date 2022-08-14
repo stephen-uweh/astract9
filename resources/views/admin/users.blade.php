@@ -52,7 +52,7 @@
                 <th></th>
             </tr>
 
-            {{-- @foreach ($users as $user)
+            @foreach ($users as $user)
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
@@ -64,7 +64,7 @@
                         </a>
                     </td>
                 </tr>
-            @endforeach --}}
+            @endforeach
         </table>
     </div>
 

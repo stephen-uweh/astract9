@@ -36,9 +36,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         }
         else{
-            return response()->json([
-                'request' => $request->all()
-            ]);
+            return back()->withInput($request->only('email'));
         }
 
         // return back()->withInput($request->only('email'));
