@@ -28,7 +28,7 @@
         </div>
 
         <x-button class="ml-3 mt-3">
-            <a href="{{ route('admin-dashboard ') }}">
+            <a href="/admin/dashboard">
                 Back
             </a>
         </x-button>
