@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class UserDashboardController extends Controller
 {
     //
+
+    public function dashboard(){
+        $user = auth()->user();
+        return view('dashboard', compact('user'));
+    }
     public function user_messages(){
         $user = auth()->user();
         $messages = Messages::orderBy('created_at', 'desc')->where('user_id', $user->id)->get();
@@ -33,7 +38,7 @@ class UserDashboardController extends Controller
 
         Messages::create($data);
         
-        return redirect('/dashboard');
+        return redirect('/messages');
     }
     
 }

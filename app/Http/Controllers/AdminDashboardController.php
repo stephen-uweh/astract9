@@ -35,7 +35,7 @@ class AdminDashboardController extends Controller
         $user->status = 'Active';
         $user->save();
 
-        return redirect('/admin/dashboard');
+        return redirect('/admin/users');
     }
 
     public function messages(){

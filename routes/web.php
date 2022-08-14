@@ -38,9 +38,7 @@ Route::get('/pending', function(){
 
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::get('/dashboard', function(){
-        return view('dashboard');
-    })->name('user.dashboard');
+    Route::get('/dashboard', [UserDashboardController::class, 'dashboard'])->name('user.dashboard');
 
     Route::get('messages', [UserDashboardController::class, 'user_messages'])->name('user.messages');
     Route::get('send-message', [UserDashboardController::class, 'send_message_page'])->name('send-message-page');
