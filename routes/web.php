@@ -26,7 +26,6 @@ Route::get('/pending', function(){
     return view('pending');
 });
 
-// Route::get('/user/dashboard', [UserDashboardController::class, 'dashboard']);
 
 
 
@@ -39,7 +38,7 @@ Route::get('/pending', function(){
 
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::get('/user/dashboard', function(){
+    Route::get('/dashboard', function(){
         return view('dashboard');
     })->name('user.dashboard');
 
